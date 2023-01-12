@@ -9,12 +9,6 @@ public class player : MonoBehaviour
     public GameObject cam;
     public GameObject waterArea;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -42,12 +36,15 @@ public class player : MonoBehaviour
         //skin.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         skin.transform.LookAt(new Vector3(mouse.x, 1, mouse.z));
 
+        //Tant que le bouton gauche de la souris est enfoncé
         if (Input.GetMouseButton(0))
         {
+            //Le joueur arrose
             waterArea.SetActive(true);
         }
         else
         {
+            //Sinon, il n'arrose pas
             waterArea.SetActive(false);
         }
     }

@@ -45,9 +45,13 @@ public class PlantsAI : MonoBehaviour
             plantProgressBar.GetComponent<Slider>().value = progress;
         }
 
+        //Si la plante est complètement poussée, et que sont timer entre tir est terminé
         if (progress >= 1 && shootCD <= 0)
         {
+            //la plante tire vers le joueur
             Invoke("launchProjectile", 0f);
+
+            //puis elle doit attendre avant de tirer à nouveau
             shootCD = 1f;
         }
 
