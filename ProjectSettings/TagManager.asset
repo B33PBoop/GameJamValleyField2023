@@ -5,8 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - SpawnPoints
+  - Plant
   - Water
-  - Projectile
   layers:
   - Default
   - TransparentFX
