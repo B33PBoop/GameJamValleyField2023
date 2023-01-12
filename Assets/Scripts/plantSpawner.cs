@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class plantSpawner : MonoBehaviour
 {
-    
-    public GameObject prefabPlante;
     public List<GameObject> spawnList = new List<GameObject>();
 
     public bool inWave = false;
@@ -22,7 +20,7 @@ public class plantSpawner : MonoBehaviour
     public float respawnTimerSteps;
     public bool startWave = true;
 
-    
+    public List<GameObject> prefabList = new List<GameObject>();
     
 
     // Start is called before the first frame update
@@ -53,8 +51,9 @@ public class plantSpawner : MonoBehaviour
         {
             yield return new WaitForSeconds(waitTime);
             int random = (Random.Range(0,spawnList.Count));
+            int randomPrefab = (Random.Range(0,prefabList.Count));
             
-            GameObject refPlante = Instantiate(prefabPlante, spawnList[random].GetComponent<Transform>().position, Quaternion.identity);
+            GameObject refPlante = Instantiate(prefabList[randomPrefab], spawnList[random].GetComponent<Transform>().position, Quaternion.identity);
             spawnList.RemoveAt(random);
         }
     }
