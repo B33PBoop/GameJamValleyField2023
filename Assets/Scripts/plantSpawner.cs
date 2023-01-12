@@ -7,9 +7,13 @@ public class plantSpawner : MonoBehaviour
     
     public GameObject prefabPlante;
     public List<GameObject> spawnList = new List<GameObject>();
+
+    public waveInfos[] waves;
+
     bool wave1 = true;
     bool waveStart = false;
 
+    
 
     // Start is called before the first frame update
     void Start()
@@ -31,7 +35,7 @@ public class plantSpawner : MonoBehaviour
     public IEnumerator StartSpawning(bool wave, float waitTime)
     {
         waveStart = true;
-        while(wave)
+        while(wave && spawnList.Count < 0)
         {
             yield return new WaitForSeconds(waitTime);
             int random = (Random.Range(0,spawnList.Count));
@@ -39,6 +43,5 @@ public class plantSpawner : MonoBehaviour
             GameObject refPlante = Instantiate(prefabPlante, spawnList[random].GetComponent<Transform>().position, Quaternion.identity);
             spawnList.RemoveAt(random);
         }
-
     }
 }
