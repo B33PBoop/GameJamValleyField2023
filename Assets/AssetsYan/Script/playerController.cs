@@ -29,7 +29,7 @@ public class playerController : MonoBehaviour
     void Update()
     {
         groundedPlayer = controller.isGrounded;
-        if (groundedPlayer && playerVelocity.y < 0)
+        if (groundedPlayer && playerVelocity.y <= 0)
         {
             playerVelocity.y = 0f;
         }
@@ -56,6 +56,7 @@ public class playerController : MonoBehaviour
             skin.transform.LookAt(new Vector3(mouse.x, this.transform.position.y, mouse.z));
         }
 
+        //
         //Tant que le bouton gauche de la souris est enfoncé
         if (Input.GetMouseButton(0))
         {
