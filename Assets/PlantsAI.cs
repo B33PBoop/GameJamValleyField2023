@@ -16,7 +16,11 @@ public class PlantsAI : MonoBehaviour
     private float shootCD = 0;
 
     //elements utilisés pour l'évolution de la plante
-    public float progress;
+    public float waterLevel;
+    public float growth = 0.2f;
+    public bool fullGrown = false;
+    public bool angry = false;
+    public bool used = false;
     public GameObject plant;
     public GameObject plantUI;
     public GameObject plantProgressBar;
@@ -24,8 +28,8 @@ public class PlantsAI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
-        progress = 0.05f;
+        waterLevel = 0.5f;
+        plantProgressBar.GetComponent<Slider>().value = waterLevel;
         player = GameObject.FindGameObjectWithTag("Player");
     }
 
@@ -38,15 +42,35 @@ public class PlantsAI : MonoBehaviour
         player.transform.position.z);
         this.transform.LookAt(targetPostition);
 
-        if (progress < 1)
+        if (growth < 1 && !fullGrown)
         {
-            progress += 0.001f;
-            plant.transform.localScale = new Vector3(progress, progress, progress);
-            plantProgressBar.GetComponent<Slider>().value = progress;
+            growth += 0.005f;
+            plant.transform.localScale = new Vector3(growth, growth, growth);
+        } 
+        else
+        {
+            fullGrown = true;
+        }
+       
+        if(fullGrown)
+        {
+            waterLevel -= 0.005f;
+            plantProgressBar.GetComponent<Slider>().value = waterLevel;
         }
 
-        //Si la plante est complètement poussée, et que sont timer entre tir est terminé
-        if (progress >= 1 && shootCD <= 0)
+        if(fullGrown && waterLevel>=100&& !used)
+        {
+            //one-time resource/score/health gain
+        }
+
+        if(waterLevel <= 0)
+        {
+            angry = true;
+            //vfx?
+        }
+
+        //Si la plante est complètement poussée, fachée, et que sont timer entre tir est terminé
+        if (fullGrown && angry && shootCD <= 0)
         {
             //la plante tire vers le joueur
             Invoke("launchProjectile", 0f);
@@ -66,9 +90,10 @@ public class PlantsAI : MonoBehaviour
     private void OnTriggerStay(Collider ObjCollider)
     {
         //Si une plante rentre dans l'aire d'arrosage
-        if (ObjCollider.CompareTag("Water") == true)
+        if (ObjCollider.CompareTag("Water") && !angry && waterLevel <=100)
         {
-            progress += 0.01f;
+            waterLevel += 0.03f;
+            plantProgressBar.GetComponent<Slider>().value = waterLevel;
         }
     }
 }
