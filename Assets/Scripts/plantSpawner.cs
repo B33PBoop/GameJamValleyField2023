@@ -26,7 +26,7 @@ public class plantSpawner : MonoBehaviour
     {
         if(wave1 && !waveStart)
         {
-            StartCoroutine(StartSpawning(wave1, 10f));
+            StartCoroutine(StartSpawning(wave1, 1f));
         }
 
         
@@ -35,7 +35,7 @@ public class plantSpawner : MonoBehaviour
     public IEnumerator StartSpawning(bool wave, float waitTime)
     {
         waveStart = true;
-        while(wave && spawnList.Count < 0)
+        while(wave && spawnList.Count > 0)
         {
             yield return new WaitForSeconds(waitTime);
             int random = (Random.Range(0,spawnList.Count));
