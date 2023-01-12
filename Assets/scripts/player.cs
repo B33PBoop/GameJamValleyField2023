@@ -7,6 +7,8 @@ public class player : MonoBehaviour
     public float vitesse;
     public GameObject skin;
     public GameObject cam;
+    public GameObject waterArea;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -14,7 +16,7 @@ public class player : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
 
         float vDeplacement = Input.GetAxis("Vertical") * vitesse;
@@ -39,5 +41,14 @@ public class player : MonoBehaviour
         //var angle = Mathf.Atan2(mouse.y, mouse.x) * Mathf.Rad2Deg;
         //skin.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         skin.transform.LookAt(new Vector3(mouse.x, 1, mouse.z));
+
+        if (Input.GetMouseButton(0))
+        {
+            waterArea.SetActive(true);
+        }
+        else
+        {
+            waterArea.SetActive(false);
+        }
     }
 }
