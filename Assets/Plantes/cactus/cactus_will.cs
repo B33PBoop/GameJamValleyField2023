@@ -15,6 +15,7 @@ public class cactus_will : MonoBehaviour
     void AttackCactus(){
         GameObject copie = Instantiate(parentBalle, zoneInstanciable.transform);
         copie.SetActive(true);
+        copie.transform.parent = null;
         //ajouter Sons
         Destroy(copie,10f);
     }
