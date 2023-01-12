@@ -32,7 +32,7 @@ public class PlantsAI : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        
+
         Vector3 targetPostition = new Vector3(player.transform.position.x,
         this.transform.position.y,
         player.transform.position.z);
@@ -61,5 +61,14 @@ public class PlantsAI : MonoBehaviour
     public void launchProjectile()
     {
         GameObject projectileClone = Instantiate(projectile, projectileSpawn.transform.position, projectileSpawn.transform.rotation);
+    }
+
+    private void OnTriggerStay(Collider ObjCollider)
+    {
+        //Si une plante rentre dans l'aire d'arrosage
+        if (ObjCollider.CompareTag("Water") == true)
+        {
+            progress += 0.01f;
+        }
     }
 }
