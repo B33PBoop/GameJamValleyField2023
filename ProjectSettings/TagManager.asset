@@ -6,6 +6,7 @@ TagManager:
   tags:
   - SpawnPoints
   - Plant
+  - Water
   layers:
   - Default
   - TransparentFX
