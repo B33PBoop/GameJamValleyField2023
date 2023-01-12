@@ -13,7 +13,7 @@ public class PlantProgress : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        progress = 0;
+        progress = 0.1f;
     }
 
     // Update is called once per frame
