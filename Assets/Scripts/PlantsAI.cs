@@ -163,7 +163,7 @@ public class PlantsAI : MonoBehaviour
         }
     }
 
-    void OnTriggerExit(Collider collision)
+    void OnTriggerExit(Collider ObjCollider)
     {
         if(ObjCollider.gameObject.tag == "Player")
         {
