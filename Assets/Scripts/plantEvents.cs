@@ -6,7 +6,7 @@ public class plantEvents : MonoBehaviour
 {
     public GameObject refTableau;
     public GameObject prefabEmpty;
-
+    public static int nbPlanteWatered = 0;
     public bool isDead = false;
     // Start is called before the first frame update
     void Start()

@@ -34,7 +34,6 @@ public class PlantsAI : MonoBehaviour
     public bool IsBurn = false;
 
     public GameObject[] lootTable;
-    
 
     public GameObject DigEffect;
 
@@ -102,6 +101,7 @@ public class PlantsAI : MonoBehaviour
                 //one-time resource/score/health gain
                 int lootItem = UnityEngine.Random.Range(0, 3);
                 GameObject HPBuff = Instantiate(lootTable[lootItem], player.transform.position, Quaternion.identity);
+                plantEvents.nbPlanteWatered += 1;
             }
 
             if (waterLevel <= 0)

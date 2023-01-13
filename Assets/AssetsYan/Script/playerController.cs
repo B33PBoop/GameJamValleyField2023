@@ -212,7 +212,7 @@ public class playerController : MonoBehaviour
         }
         if (collider.gameObject.tag == "FireBuff")
         {
-            Invoke("IsFlammingTime", 3f);
+            Invoke("IsFlammingTime", 4f);
             GameObject lesSons = GameObject.FindGameObjectWithTag("sons");
             AudioClip lanceFlame = lesSons.GetComponent<sonsScript>().sons[10];
             gameObject.GetComponent<AudioSource>().PlayOneShot(lanceFlame);
@@ -253,7 +253,7 @@ public class playerController : MonoBehaviour
     }
     void IsFlammingTime()
     {
-        Invoke("IsFlammingTime", 3f);
+        Invoke("FlammingDone", 3.8f);
         flamingMode = true;
     }
     void FlammingDone()
