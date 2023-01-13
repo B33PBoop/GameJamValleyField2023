@@ -10,6 +10,7 @@ TagManager:
   - Projectile
   - Fire
   - balle
+  - Boss
   layers:
   - Default
   - TransparentFX
