@@ -28,9 +28,11 @@ public class PlantsAI : MonoBehaviour
     public GameObject plantUI;
     public GameObject plantProgressBar;
 
+    public GameObject particules;
     public GameObject Skin;
     public Material BurnMat;
     public bool IsBurn = false;
+
 
     //public GameObject AlignPosition;
     // Start is called before the first frame update
@@ -79,6 +81,7 @@ public class PlantsAI : MonoBehaviour
             {
                 waterLevel -= waterDrainSpeed;
                 plantProgressBar.GetComponent<Slider>().value = waterLevel;
+                // Skin.GetComponent<Renderer>().material.color = new Color(waterLevel*1/255,Skin.GetComponent<Renderer>().material.color.g,Skin.GetComponent<Renderer>().material.color.b);
             }
 
             if (fullGrown && waterLevel >= 1 && !used)
@@ -90,6 +93,7 @@ public class PlantsAI : MonoBehaviour
             if (waterLevel <= 0)
             {
                 angry = true;
+                particules.SetActive(true);
                 //vfx?
             }
 
