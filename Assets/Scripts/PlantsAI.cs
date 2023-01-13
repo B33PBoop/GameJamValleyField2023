@@ -15,7 +15,7 @@ public class PlantsAI : MonoBehaviour
     public GameObject projectileSpawn;
     public float shootCD = 0;
 
-    //elements utilis�s pour l'�volution de la plante
+    //elements utilises pour l'evolution de la plante
     public float waterLevel;
     public float growth = 0.2f;
     public float waterDrainSpeed = 0.0025f;
@@ -126,6 +126,12 @@ public class PlantsAI : MonoBehaviour
             plantProgressBar.GetComponent<Slider>().value = waterLevel;
         }
         if (ObjCollider.gameObject.tag == "Fire" && !IsBurn)
+        {
+            Invoke("GotBurnt", 1f);
+            IsBurn = true;
+            Skin.GetComponent<SkinnedMeshRenderer>().material = BurnMat;
+        };
+        if (ObjCollider.gameObject.tag == "Dig" && !IsBurn)
         {
             Invoke("GotBurnt", 1f);
             IsBurn = true;

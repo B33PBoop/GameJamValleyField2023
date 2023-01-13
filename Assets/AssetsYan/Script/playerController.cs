@@ -149,6 +149,7 @@ public class playerController : MonoBehaviour
                     Invoke("WalkAction", 0.5f / actualSpeed);
                     iswalking = true;
                 }
+
             }
             if (flamingMode == true)
             {
