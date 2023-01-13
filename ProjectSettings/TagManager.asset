@@ -9,6 +9,7 @@ TagManager:
   - Water
   - Projectile
   - Fire
+  - balle
   layers:
   - Default
   - TransparentFX
