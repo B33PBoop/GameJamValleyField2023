@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class playerController : MonoBehaviour
@@ -25,8 +26,11 @@ public class playerController : MonoBehaviour
     public GameObject WalkEffect;
 
     public GameObject FlamerEffect;
+    public GameObject invulnerableEffect;
 
     public int HP = 3;
+    public bool isInvulnerable = false;
+
     public bool iswalking = false;
     public bool isDead = false;
     public bool isSlow = false;
@@ -77,6 +81,7 @@ public class playerController : MonoBehaviour
             //Le joueur Dig
             digeffect.SetActive(true);
             isStop = true;
+            isInvulnerable = true;
             Invoke("DigAction", 1f);
             animator.SetBool("isDig", true);
         }
@@ -92,6 +97,7 @@ public class playerController : MonoBehaviour
         if (Input.GetMouseButtonUp(1) && HasDigging == false && isDashing == false)
         {
             HasDigging = true;
+            isInvulnerable = false;
             DigTimer = 10;
             InvokeRepeating("TimerTick", 0f, 1f);
         }
@@ -124,6 +130,14 @@ public class playerController : MonoBehaviour
         if (groundedPlayer && playerVelocity.y <= 0)
         {
             playerVelocity.y = 0f;
+        }
+        if (isInvulnerable == true)
+        {
+            invulnerableEffect.SetActive(true);
+        }
+        else
+        {
+            invulnerableEffect.SetActive(false);
         }
 
         if (isDead == false && isStop == false)
@@ -188,6 +202,7 @@ public class playerController : MonoBehaviour
         if (HP <= 0 && isDead == false)
         {
             Debug.Log("player is dead - GameOver");
+            Invoke("reloadMenu", 2f);
             isDead = true;
         }
         switch (HP)
@@ -217,10 +232,12 @@ public class playerController : MonoBehaviour
     }
     void OnTriggerEnter(Collider collider)
     {
-        if (collider.gameObject.tag == "Projectile")
+        if (collider.gameObject.tag == "Projectile" && isInvulnerable == false)
         {
             isStop = true;
+            isInvulnerable = true;
             Invoke("IsDashingDowntime", 0.5f);
+            Invoke("Invulnerable", 3f);
             Debug.Log("je hit qqchose");
 
             HP -= 1;
@@ -280,5 +297,13 @@ public class playerController : MonoBehaviour
         if(DigTimer >= 0){
             DigTimer = DigTimer - 1;
         }
+    }
+    void Invulnerable()
+    {
+        isInvulnerable = false;
+    }
+    void reloadMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 }

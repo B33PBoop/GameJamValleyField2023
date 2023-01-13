@@ -100,7 +100,9 @@ public class PlantsAI : MonoBehaviour
                 //one-time resource/score/health gain
                 int lootItem = UnityEngine.Random.Range(0, 3);
                 GameObject HPBuff = Instantiate(lootTable[lootItem], player.transform.position, Quaternion.identity);
+                used = true;
                 plantEvents.nbPlanteWatered += 1;
+                Debug.Log(plantEvents.nbPlanteWatered);
             }
 
             if (waterLevel <= 0)

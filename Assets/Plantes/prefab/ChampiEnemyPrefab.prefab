@@ -579,6 +579,7 @@ GameObject:
   - component: {fileID: 6255736590350908088}
   - component: {fileID: 967441566933402717}
   - component: {fileID: 4049276338818691576}
+  - component: {fileID: 5221607377011419567}
   m_Layer: 0
   m_Name: Parent_Champi
   m_TagString: Untagged
@@ -620,7 +621,7 @@ MonoBehaviour:
   shootCD: 0
   waterLevel: 0
   growth: 0.2
-  waterDrainSpeed: 0.005
+  waterDrainSpeed: 0.002
   fullGrown: 0
   angry: 0
   used: 0
@@ -632,7 +633,10 @@ MonoBehaviour:
   Skin: {fileID: 3802171756074927591}
   BurnMat: {fileID: 2100000, guid: fd5e2b2ad5f642f43813d92980920004, type: 2}
   IsBurn: 0
-  lootTable: []
+  lootTable:
+  - {fileID: 7621524146342606482, guid: 0c5c5874e984d8949b6d015ae2187088, type: 3}
+  - {fileID: 7621524146342606482, guid: 0c5c5874e984d8949b6d015ae2187088, type: 3}
+  - {fileID: 3574623518950695010, guid: effc4a76036f54844a103ba8a572e159, type: 3}
   DigEffect: {fileID: 100000, guid: 83cd9cc9f9c88824ba18dc59b05ae328, type: 3}
   plantTopParent: {fileID: 8225438324002113878}
   prefabEmpty: {fileID: 9016053427553140545, guid: b9ca441cf9566ad4c90b978f65aaff74,
@@ -751,6 +755,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!65 &5221607377011419567
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6255736590350908095}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0.54, z: 0}
 --- !u!1 &7095181979263665315
 GameObject:
   m_ObjectHideFlags: 0

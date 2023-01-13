@@ -117,7 +117,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 2
+  m_Radius: 5
   m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!1 &97771916430517573
 GameObject:
@@ -347,7 +347,7 @@ MonoBehaviour:
   shootCD: 0
   waterLevel: 0
   growth: 0.2
-  waterDrainSpeed: 0.005
+  waterDrainSpeed: 0.002
   fullGrown: 0
   angry: 0
   used: 0

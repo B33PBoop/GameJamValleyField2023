@@ -49,6 +49,7 @@ MonoBehaviour:
   waveNumber: 1
   waveTimer: 30
   waveTimerSteps: 5
+  Achivement: {fileID: 0}
   respawnTimer: 10
   respawnTimerSteps: 0.5
   startWave: 1

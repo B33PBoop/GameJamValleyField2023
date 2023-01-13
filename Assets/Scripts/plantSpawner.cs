@@ -8,10 +8,13 @@ public class plantSpawner : MonoBehaviour
 
     public bool inWave = false;
 
+    public bool trigger = false;
+
     public int waveNumber = 1;
     public float waveTimer;
     public float waveTimerSteps;
-    
+    public GameObject Achivement;
+
     // Scrap le Zoomout
     // public float cameraSize;
     // public float cameraSizeSteps;
@@ -21,6 +24,8 @@ public class plantSpawner : MonoBehaviour
     public bool startWave = true;
 
     public List<GameObject> prefabList = new List<GameObject>();
+
+    public static int nbPlanteWatered;
     
 
     // Start is called before the first frame update
@@ -32,10 +37,18 @@ public class plantSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!inWave)
+        if (!inWave)
         {
             StartCoroutine(StartSpawning(respawnTimer));
             StartCoroutine(RoundTimer(waveTimer));
+        }
+        if (plantEvents.nbPlanteWatered >= 4)
+        {
+            trigger = true;
+        }
+        if (trigger == true)
+        {
+            Achivement.SetActive(true);
         }
     }
 
