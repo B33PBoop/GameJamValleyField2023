@@ -9,9 +9,12 @@ public class BoutonsMenu : MonoBehaviour
     public static bool persoA = true;
     public static float intensiteSon;
     public Slider mainSlider;
+    public GameObject options;
+    public GameObject credit;
     // Start is called before the first frame update
     void Start()
     {
+        DontDestroyOnLoad(gameObject);
         persoA = true;
     }
 
@@ -19,7 +22,12 @@ public class BoutonsMenu : MonoBehaviour
     void Update()
     {
         intensiteSon = mainSlider.value;
-        Debug.Log(mainSlider.value);
+    }
+    public void OuvrirOptions() {
+        options.SetActive(true);
+    }
+    public void OuvrirCredit() {
+        credit.SetActive(true);
     }
     public void ChangerScene()
     {
@@ -33,5 +41,13 @@ public class BoutonsMenu : MonoBehaviour
     public void PersoB()
     {
         persoA = false;
+    }
+    public void FermeMenuOption()
+    {
+        options.SetActive(true);
+    }
+    public void FermeMenuCredit()
+    {
+        credit.SetActive(true);
     }
 }
