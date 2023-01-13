@@ -85,7 +85,7 @@ public class PlantsAI : MonoBehaviour
         if (fullGrown && angry && shootCD <= 0 && trackPlayer)
         {
             //la plante tire vers le joueur
-            Invoke("launchProjectile", 0f);
+            launchProjectile();
 
             //puis elle doit attendre avant de tirer � nouveau
             shootCD = 1f;
