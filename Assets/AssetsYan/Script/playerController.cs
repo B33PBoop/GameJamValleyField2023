@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -31,7 +32,8 @@ public class playerController : MonoBehaviour
     public bool isSlow = false;
     public bool isStop = false;
     public bool isDashing = false;
-    public bool IsDigging = false;
+    public bool HasDigging = false;
+    public int DigTimer;
 
     public bool flamingMode = false;
 
@@ -70,11 +72,10 @@ public class playerController : MonoBehaviour
             isSlow = false;
         }
         //Tant que le bouton gauche de la souris est enfonc�
-        if (Input.GetMouseButton(1) && isDashing == false && IsDigging == false)
+        if (Input.GetMouseButton(1) && isDashing == false && HasDigging == false)
         {
             //Le joueur Dig
             digeffect.SetActive(true);
-            IsDigging = true;
             isStop = true;
             Invoke("DigAction", 1f);
             animator.SetBool("isDig", true);
@@ -88,9 +89,16 @@ public class playerController : MonoBehaviour
             animator.SetBool("isDig", false);
         }
 
-        if (Input.GetMouseButtonUp(1) && isDashing == false)
+        if (Input.GetMouseButtonUp(1) && HasDigging == false && isDashing == false)
         {
-            Invoke("DigAction", 1f);
+            HasDigging = true;
+            DigTimer = 10;
+            InvokeRepeating("TimerTick", 0f, 1f);
+        }
+        if(DigTimer <= 0)
+        {
+            HasDigging = false;
+            CancelInvoke("TimerTick");
         }
 
         if (Input.GetKeyDown("space") && isDashing == false)
@@ -251,5 +259,13 @@ public class playerController : MonoBehaviour
     void IsFlammingTime()
     {
         flamingMode = false;
+    }
+    void TimerTick()
+    {
+        if(DigTimer >= 0){
+            DigTimer = DigTimer - 1;
+        }
+        else{
+        }
     }
 }
