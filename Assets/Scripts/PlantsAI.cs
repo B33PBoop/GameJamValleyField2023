@@ -33,6 +33,9 @@ public class PlantsAI : MonoBehaviour
     public Material BurnMat;
     public bool IsBurn = false;
 
+    public GameObject[] lootTable;
+    
+
 
     //public GameObject AlignPosition;
     // Start is called before the first frame update
@@ -90,7 +93,8 @@ public class PlantsAI : MonoBehaviour
             if (fullGrown && waterLevel >= 1 && !used)
             {
                 //one-time resource/score/health gain
-                //GameObject HPBuff = Instantiate(prefabPlante, spawnList[random].GetComponent<Transform>().position, Quaternion.identity);
+                int lootItem = UnityEngine.Random.Range(0, 3);
+                GameObject HPBuff = Instantiate(lootTable[lootItem], player.transform.position, Quaternion.identity);
             }
 
             if (waterLevel <= 0)

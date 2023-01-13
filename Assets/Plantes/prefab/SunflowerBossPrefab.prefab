@@ -15178,6 +15178,11 @@ MonoBehaviour:
   Skin: {fileID: 5179858920159030738}
   BurnMat: {fileID: 2100000, guid: fd5e2b2ad5f642f43813d92980920004, type: 2}
   IsBurn: 0
+  lootTable:
+  - {fileID: 7621524146342606482, guid: 0c5c5874e984d8949b6d015ae2187088, type: 3}
+  - {fileID: 7621524146342606482, guid: 0c5c5874e984d8949b6d015ae2187088, type: 3}
+  - {fileID: 7621524146342606482, guid: 0c5c5874e984d8949b6d015ae2187088, type: 3}
+  - {fileID: 3574623518950695010, guid: effc4a76036f54844a103ba8a572e159, type: 3}
 --- !u!1 &7477199120135738149
 GameObject:
   m_ObjectHideFlags: 0

@@ -340,7 +340,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11ba0d60e7f135440bcd26af4931c650, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlantTotal: {fileID: 0}
   projectile: {fileID: 1189442932914630944, guid: df9c22092c8414b4bae6597cfa7ed615,
     type: 3}
   projectileSpawn: {fileID: 4080096802665216748}
@@ -359,7 +358,11 @@ MonoBehaviour:
   Skin: {fileID: 6510412058290612407}
   BurnMat: {fileID: 2100000, guid: fd5e2b2ad5f642f43813d92980920004, type: 2}
   IsBurn: 0
-  DigEffect: {fileID: 100000, guid: 83cd9cc9f9c88824ba18dc59b05ae328, type: 3}
+  lootTable:
+  - {fileID: 7621524146342606482, guid: 0c5c5874e984d8949b6d015ae2187088, type: 3}
+  - {fileID: 7621524146342606482, guid: 0c5c5874e984d8949b6d015ae2187088, type: 3}
+  - {fileID: 7621524146342606482, guid: 0c5c5874e984d8949b6d015ae2187088, type: 3}
+  - {fileID: 3574623518950695010, guid: effc4a76036f54844a103ba8a572e159, type: 3}
 --- !u!54 &3737446880428590840
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -488,7 +491,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11ba0d60e7f135440bcd26af4931c650, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlantTotal: {fileID: 0}
   projectile: {fileID: 1189442932914630944, guid: df9c22092c8414b4bae6597cfa7ed615,
     type: 3}
   projectileSpawn: {fileID: 4080096802665216748}
@@ -507,7 +509,7 @@ MonoBehaviour:
   Skin: {fileID: 0}
   BurnMat: {fileID: 0}
   IsBurn: 0
-  DigEffect: {fileID: 0}
+  lootTable: []
 --- !u!54 &4452899362603512107
 Rigidbody:
   m_ObjectHideFlags: 0
