@@ -28,15 +28,14 @@ public class PlantsAI : MonoBehaviour
     public GameObject plantUI;
     public GameObject plantProgressBar;
 
-    public GameObject cameraMain;
+    //public GameObject AlignPosition;
     // Start is called before the first frame update
     void Start()
     {
         waterLevel = 0.5f;
         plantProgressBar.GetComponent<Slider>().value = waterLevel;
         player = GameObject.FindGameObjectWithTag("Player");
-        cameraMain = GameObject.FindGameObjectWithTag("MainCamera");
-        plantUI.transform.LookAt(cameraMain.transform);
+        //plantUI.transform.LookAt(AlignPosition.transform);
     }
 
     // Update is called once per frame
