@@ -8,13 +8,19 @@ public class MenuControl : MonoBehaviour
     public void StartGame()
     {
         //Ouvrir la scène de jeu
-        //SceneManager.LoadScene("");
+        SceneManager.LoadScene("TheGame");
+    }
+
+    public void OpenControls()
+    {
+        //Ouvrir la scène des contrôles
+        SceneManager.LoadScene("SceneControls");
     }
 
     public void OpenOptions()
     {
         //Ouvrir la scène d'options
-        //SceneManager.LoadScene("");
+        SceneManager.LoadScene("SceneOptions");
     }
 
     public void OpenCredits()
@@ -26,7 +32,7 @@ public class MenuControl : MonoBehaviour
     public void OpenMainMenu()
     {
         //Ouvrir la scène du menu principal
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene("MainMenu");
 
     }
 }
