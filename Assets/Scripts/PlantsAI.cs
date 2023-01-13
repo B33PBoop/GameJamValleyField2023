@@ -153,7 +153,27 @@ public class PlantsAI : MonoBehaviour
             IsBurn = true;
             GameObject digEffect = Instantiate(DigEffect, plant.transform);
         };
+
+        if(ObjCollider.gameObject.tag == "Player")
+        {
+            if(fullGrown)
+            {
+                plantUI.SetActive(true);
+            }
+        }
     }
+
+    void OnTriggerExit(Collider collision)
+    {
+        if(ObjCollider.gameObject.tag == "Player")
+        {
+            if(fullGrown)
+            {
+                plantUI.SetActive(false);
+            }
+        }
+    }
+
     void GotBurnt()
     {
         GameObject emptyClone = Instantiate(prefabEmpty, this.gameObject.transform);
