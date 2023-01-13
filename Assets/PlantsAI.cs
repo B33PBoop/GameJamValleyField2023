@@ -36,12 +36,13 @@ public class PlantsAI : MonoBehaviour
         plantProgressBar.GetComponent<Slider>().value = waterLevel;
         player = GameObject.FindGameObjectWithTag("Player");
         cameraMain = GameObject.FindGameObjectWithTag("MainCamera");
+        plantUI.transform.LookAt(cameraMain.transform);
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        plantUI.transform.LookAt(cameraMain .transform);
+        
         Vector3 targetPostition = new Vector3(player.transform.position.x,
         this.transform.position.y,
         player.transform.position.z);
