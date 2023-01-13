@@ -169,6 +169,49 @@ public class playerController : MonoBehaviour
                 animator.SetBool("IsFire", false);
                 FlamerEffect.SetActive(false);
             }
+
+            playerVelocity.y += gravityValue * Time.deltaTime;
+            controller.Move(playerVelocity * Time.deltaTime);
+
+
+            var mouse = Input.mousePosition;
+            mouse.z = 10;
+            mouse = Camera.main.ScreenToWorldPoint(mouse);
+            //var angle = Mathf.Atan2(mouse.y, mouse.x) * Mathf.Rad2Deg;
+            //skin.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+            skin.transform.LookAt(new Vector3(mouse.x, this.transform.position.y, mouse.z));
+        }
+
+        //
+        //Tant que le bouton gauche de la souris est enfonc�
+        if (Input.GetMouseButton(0))
+        {
+            //Le joueur arrose
+            waterArea.SetActive(true);
+            animator.SetBool("IsWater", true);
+        }
+        else
+        {
+            //Sinon, il n'arrose pas
+            waterArea.SetActive(false);
+            animator.SetBool("IsWater", false);
+            waterArea.GetComponent<AudioSource>().SetScheduledStartTime(0f);
+        }
+        //Tant que le bouton gauche de la souris est enfonc�
+        if (Input.GetMouseButton(1))
+        {
+            //Le joueur Dig
+            digArea.SetActive(true);
+            isStop = true;
+            animator.SetBool("IsFire", true);
+        }
+        else
+        {
+            //Sinon, il n'arrose pas
+            digArea.SetActive(false);
+            isStop = false;
+            animator.SetBool("IsFire", false);
+
         }
 
         if (HP <= 0 && isDead == false)

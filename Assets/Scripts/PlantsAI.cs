@@ -82,6 +82,9 @@ public class PlantsAI : MonoBehaviour
                 waterLevel -= waterDrainSpeed;
                 plantProgressBar.GetComponent<Slider>().value = waterLevel;
                 // Skin.GetComponent<Renderer>().material.color = new Color(waterLevel*1/255,Skin.GetComponent<Renderer>().material.color.g,Skin.GetComponent<Renderer>().material.color.b);
+                GameObject lesSons = GameObject.FindGameObjectWithTag("sons");
+                AudioClip cloche = lesSons.GetComponent<sonsScript>().sons[4];
+                gameObject.GetComponent<AudioSource>().PlayOneShot(cloche);
             }
 
             if (fullGrown && waterLevel >= 1 && !used)
@@ -130,6 +133,9 @@ public class PlantsAI : MonoBehaviour
             Invoke("GotBurnt", 1f);
             IsBurn = true;
             Skin.GetComponent<SkinnedMeshRenderer>().material = BurnMat;
+            GameObject lesSons = GameObject.FindGameObjectWithTag("sons");
+            AudioClip feu = lesSons.GetComponent<sonsScript>().sons[5];
+            gameObject.GetComponent<AudioSource>().PlayOneShot(feu);
         };
         if (ObjCollider.gameObject.tag == "Dig" && !IsBurn)
         {
@@ -140,6 +146,6 @@ public class PlantsAI : MonoBehaviour
     }
     void GotBurnt()
     {
-        Destroy(this.gameObject);
+        Destroy(this.gameObject, 1.5f);
     }
 }
