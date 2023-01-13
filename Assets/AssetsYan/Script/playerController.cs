@@ -77,7 +77,7 @@ public class playerController : MonoBehaviour
             Invoke("DigAction", 1f);
             animator.SetBool("isDig", true);
         }
-        else if(isStop == true && isDashing == false)
+        else if (isStop == true && isDashing == false)
         {
             //Sinon, il n'arrose pas
             digeffect.SetActive(false);
@@ -92,7 +92,7 @@ public class playerController : MonoBehaviour
             isStop = false;
             isDashing = true;
             Invoke("IsDashing", 0.5f);
-            
+
         }
 
         if (isSlow == false)
@@ -112,9 +112,9 @@ public class playerController : MonoBehaviour
 
         if (isDead == false && isStop == false)
         {
-            if(isDashing == false && isStop == false)
+            if (isDashing == false && isStop == false)
             {
-                if(flamingMode == false){
+                if (flamingMode == false) {
                     Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
                     controller.Move(move * Time.deltaTime * actualSpeed);
 
@@ -141,8 +141,6 @@ public class playerController : MonoBehaviour
                 var mouse = Input.mousePosition;
                 mouse.z = 10;
                 mouse = Camera.main.ScreenToWorldPoint(mouse);
-                //var angle = Mathf.Atan2(mouse.y, mouse.x) * Mathf.Rad2Deg;
-                //skin.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
                 skin.transform.LookAt(new Vector3(mouse.x, this.transform.position.y, mouse.z));
             }
             if (isDashing == true && flamingMode == false)
@@ -169,49 +167,6 @@ public class playerController : MonoBehaviour
                 animator.SetBool("IsFire", false);
                 FlamerEffect.SetActive(false);
             }
-
-            playerVelocity.y += gravityValue * Time.deltaTime;
-            controller.Move(playerVelocity * Time.deltaTime);
-
-
-            var mouse = Input.mousePosition;
-            mouse.z = 10;
-            mouse = Camera.main.ScreenToWorldPoint(mouse);
-            //var angle = Mathf.Atan2(mouse.y, mouse.x) * Mathf.Rad2Deg;
-            //skin.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-            skin.transform.LookAt(new Vector3(mouse.x, this.transform.position.y, mouse.z));
-        }
-
-        //
-        //Tant que le bouton gauche de la souris est enfonc�
-        if (Input.GetMouseButton(0))
-        {
-            //Le joueur arrose
-            waterArea.SetActive(true);
-            animator.SetBool("IsWater", true);
-        }
-        else
-        {
-            //Sinon, il n'arrose pas
-            waterArea.SetActive(false);
-            animator.SetBool("IsWater", false);
-            waterArea.GetComponent<AudioSource>().SetScheduledStartTime(0f);
-        }
-        //Tant que le bouton gauche de la souris est enfonc�
-        if (Input.GetMouseButton(1))
-        {
-            //Le joueur Dig
-            digArea.SetActive(true);
-            isStop = true;
-            animator.SetBool("IsFire", true);
-        }
-        else
-        {
-            //Sinon, il n'arrose pas
-            digArea.SetActive(false);
-            isStop = false;
-            animator.SetBool("IsFire", false);
-
         }
 
         if (HP <= 0 && isDead == false)
