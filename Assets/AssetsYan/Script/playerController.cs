@@ -229,7 +229,18 @@ public class playerController : MonoBehaviour
         if (collider.gameObject.tag == "FireBuff")
         {
             Invoke("IsFlammingTime", 3f);
-            flamingMode = true;
+            GameObject lesSons = GameObject.FindGameObjectWithTag("sons");
+            AudioClip lanceFlame = lesSons.GetComponent<sonsScript>().sons[10];
+            gameObject.GetComponent<AudioSource>().PlayOneShot(lanceFlame);
+            Destroy(collider.gameObject);
+        }
+        if (collider.gameObject.tag == "HPBuff")
+        {
+            if(HP < 3)
+            {
+                HP += 1;
+            }
+            Destroy(collider.gameObject);
         }
         if (collider.gameObject.tag == "Projectile")
         {
@@ -266,6 +277,11 @@ public class playerController : MonoBehaviour
         isStop = false;
     }
     void IsFlammingTime()
+    {
+        Invoke("IsFlammingTime", 3f);
+        flamingMode = true;
+    }
+    void FlammingDone()
     {
         flamingMode = false;
     }
