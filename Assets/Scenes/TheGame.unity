@@ -7801,8 +7801,8 @@ GameObject:
   - component: {fileID: 4333616383051043010}
   - component: {fileID: 4333616383051043013}
   m_Layer: 0
-  m_Name: DigArea
-  m_TagString: Water
+  m_Name: FireArea
+  m_TagString: Fire
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

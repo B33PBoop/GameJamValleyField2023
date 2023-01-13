@@ -354,6 +354,9 @@ MonoBehaviour:
   plant: {fileID: 48033451175954865}
   plantUI: {fileID: 4452899363413890938}
   plantProgressBar: {fileID: 4452899361991778558}
+  Skin: {fileID: 6510412058290612407}
+  BurnMat: {fileID: 2100000, guid: fd5e2b2ad5f642f43813d92980920004, type: 2}
+  IsBurn: 0
 --- !u!54 &3737446880428590840
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -496,6 +499,9 @@ MonoBehaviour:
   plant: {fileID: 4080096802529159266}
   plantUI: {fileID: 4452899363413890938}
   plantProgressBar: {fileID: 4452899361991778558}
+  Skin: {fileID: 0}
+  BurnMat: {fileID: 0}
+  IsBurn: 0
 --- !u!54 &4452899362603512107
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1238,6 +1244,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 856095729592931083}
     m_Modifications:
+    - target: {fileID: 875631432597545050, guid: 4d996576b94b54e4f81da9af134c602e,
+        type: 3}
+      propertyPath: m_TagString
+      value: Projectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 875631433116963850, guid: 4d996576b94b54e4f81da9af134c602e,
+        type: 3}
+      propertyPath: m_TagString
+      value: Projectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 875631433235143188, guid: 4d996576b94b54e4f81da9af134c602e,
+        type: 3}
+      propertyPath: m_TagString
+      value: Projectile
+      objectReference: {fileID: 0}
     - target: {fileID: 875631434036271680, guid: 4d996576b94b54e4f81da9af134c602e,
         type: 3}
       propertyPath: m_Name
