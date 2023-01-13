@@ -12,6 +12,10 @@ public class playerController : MonoBehaviour
     public float playerSpeed = 2.0f;
     public float gravityValue = -9.81f;
 
+    public float digCD;
+    public float digRefreshRate;
+    public Image digCDCircle;
+
     public GameObject skin;
 
     public GameObject waterArea;
@@ -44,62 +48,77 @@ public class playerController : MonoBehaviour
             playerVelocity.y = 0f;
         }
 
-        if (isDead == false && isStop == false)
+        if (isDead == false)
         {
-            Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-            controller.Move(move * Time.deltaTime * playerSpeed);
-
-            if (move != Vector3.zero)
+            if (isStop == false)
             {
-                gameObject.transform.forward = move;
-                animator.SetBool("IsWalk", true);
+                Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+                controller.Move(move * Time.deltaTime * playerSpeed);
+
+                if (move != Vector3.zero)
+                {
+                    gameObject.transform.forward = move;
+                    animator.SetBool("IsWalk", true);
+                }
+                else
+                {
+                    animator.SetBool("IsWalk", false);
+                }
+
+                playerVelocity.y += gravityValue * Time.deltaTime;
+                controller.Move(playerVelocity * Time.deltaTime);
+
+
+                var mouse = Input.mousePosition;
+                mouse.z = 10;
+                mouse = Camera.main.ScreenToWorldPoint(mouse);
+                //var angle = Mathf.Atan2(mouse.y, mouse.x) * Mathf.Rad2Deg;
+                //skin.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+                skin.transform.LookAt(new Vector3(mouse.x, this.transform.position.y, mouse.z));
+            }
+
+            //Tant que le bouton gauche de la souris est enfoncé
+            if (Input.GetMouseButton(0))
+            {
+                //Le joueur arrose
+                waterArea.SetActive(true);
+                animator.SetBool("IsWater", true);
             }
             else
             {
-                animator.SetBool("IsWalk", false);
+                //Sinon, il n'arrose pas
+                waterArea.SetActive(false);
+                animator.SetBool("IsWater", false);
             }
 
-            playerVelocity.y += gravityValue * Time.deltaTime;
-            controller.Move(playerVelocity * Time.deltaTime);
+            //Quand on utilise le clic-droit et que l'abilité de dig est disponible
+            if (Input.GetMouseButtonDown(1) && digCD <= 0)
+            {
+                //Le joueur Dig
+                digArea.SetActive(true);
+                isStop = true;
+                animator.SetBool("IsFire", true);
 
+                //et on met un compte à rebours avant la prochaine utilisation
+                digCD = 5f;
 
-            var mouse = Input.mousePosition;
-            mouse.z = 10;
-            mouse = Camera.main.ScreenToWorldPoint(mouse);
-            //var angle = Mathf.Atan2(mouse.y, mouse.x) * Mathf.Rad2Deg;
-            //skin.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-            skin.transform.LookAt(new Vector3(mouse.x, this.transform.position.y, mouse.z));
+            }
+            else
+            {
+                //Sinon, on arrête l'animation
+                digArea.SetActive(false);
+                isStop = false;
+                animator.SetBool("IsFire", false);
+            }
+
+            if(digCD > 0)
+            {
+                digCD -= digRefreshRate;
+                digCDCircle.fillAmount = digCD / 5;
+            }
         }
 
-        //
-        //Tant que le bouton gauche de la souris est enfoncé
-        if (Input.GetMouseButton(0))
-        {
-            //Le joueur arrose
-            waterArea.SetActive(true);
-            animator.SetBool("IsWater", true);
-        }
-        else
-        {
-            //Sinon, il n'arrose pas
-            waterArea.SetActive(false);
-            animator.SetBool("IsWater", false);
-        }
-        //Tant que le bouton gauche de la souris est enfoncé
-        if (Input.GetMouseButton(1))
-        {
-            //Le joueur Dig
-            digArea.SetActive(true);
-            isStop = true;
-            animator.SetBool("IsFire", true);
-        }
-        else
-        {
-            //Sinon, il n'arrose pas
-            digArea.SetActive(false);
-            isStop = false;
-            animator.SetBool("IsFire", false);
-        }
+        
 
         if (HP <= 0 && isDead == false)
         {
