@@ -75,7 +75,7 @@ public class playerController : MonoBehaviour
             //Sinon, il n'arrose pas
             digeffect.SetActive(false);
             digArea.SetActive(false);
-            isStop = false;
+            Invoke("IsDashingDowntime", 0.5f);
             animator.SetBool("isDig", false);
         }
         if (Input.GetKeyDown("space") && isDashing == false)
@@ -202,7 +202,6 @@ public class playerController : MonoBehaviour
     {
         isDashing = false;
         isStop = true;
-        Invoke("IsDashingDowntime", 0.5f);
     }
     void IsDashingDowntime()
     {
