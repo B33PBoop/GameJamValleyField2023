@@ -22,6 +22,8 @@ public class playerController : MonoBehaviour
     public GameObject digeffect;
     public GameObject WalkEffect;
 
+    public GameObject FlamerEffect;
+
     public int HP = 3;
     public bool iswalking = false;
     public bool isDead = false;
@@ -43,7 +45,7 @@ public class playerController : MonoBehaviour
     {
         //
         //Tant que le bouton gauche de la souris est enfoncé
-        if (Input.GetMouseButton(0) && isDashing == false)
+        if (Input.GetMouseButton(0) && isDashing == false && flamingMode == false)
         {
             //Le joueur arrose
             waterArea.SetActive(true);
@@ -68,7 +70,7 @@ public class playerController : MonoBehaviour
             Invoke("DigAction", 1f);
             animator.SetBool("isDig", true);
         }
-        else if(isStop == true)
+        else if(isStop == true && isDashing == false)
         {
             //Sinon, il n'arrose pas
             digeffect.SetActive(false);
@@ -151,10 +153,13 @@ public class playerController : MonoBehaviour
             if (flamingMode == true)
             {
                 animator.SetBool("IsFire", true);
+                FlamerEffect.SetActive(true);
+
             }
             else
             {
                 animator.SetBool("IsFire", false);
+                FlamerEffect.SetActive(false);
             }
         }
 
