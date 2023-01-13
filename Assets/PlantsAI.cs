@@ -61,11 +61,18 @@ public class PlantsAI : MonoBehaviour
 
 
 
-            if (growth < 1 && !fullGrown)
+            if (growth < 1 && !fullGrown && gameObject.tag != "Boss")
             {
                 growth += 0.005f;
                 plant.transform.localScale = new Vector3(growth, growth, growth);
             }
+            
+            else if(growth < 2.5 && !fullGrown && gameObject.tag == "Boss") 
+            {
+                growth+= 0.005f;
+                plant.transform.localScale = new Vector3(growth,(0.6f*growth),growth);
+            }
+            
             else
             {
                 fullGrown = true;

@@ -2,10 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class sunflower_Shoot : MonoBehaviour
+public class Champignon_Attack : MonoBehaviour
 {
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
+
+
+
     public GameObject zoneDegat;
-    public bool isBoss = true;
+    public bool isBoss = false;
 
     public bool isCactus = false;
     public bool playerInRange = true;
@@ -15,23 +23,12 @@ public class sunflower_Shoot : MonoBehaviour
     {
         
     }
-    void AttackSunflower(){
+    void AttackChampi(){
         zoneDegat.SetActive(true);
-        Invoke("EteindrePlante",4f);
-        //ajouter Sons
     }
 
-    void EteindrePlante(){
+    void ArreteChampi(){
         zoneDegat.SetActive(false);
         gameObject.GetComponent<Animator>().SetBool("Tire", false);
-    }
-
-    void ArretFollow(){
-        gameObject.GetComponentInParent<PlantsAI>().trackPlayer = false;
-    }
-    
-    void DebutFollow() 
-    {
-        gameObject.GetComponentInParent<PlantsAI>().trackPlayer = true;
     }
 }
