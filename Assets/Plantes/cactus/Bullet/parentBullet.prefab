@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7933882469492578325}
   m_Layer: 0
   m_Name: particule
-  m_TagString: Untagged
+  m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -44,7 +44,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1634252034117798368}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.1, y: 0.1, z: 0.2}
@@ -9707,6 +9707,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1845251808985920811}
+  - component: {fileID: 8749205139527894931}
   m_Layer: 0
   m_Name: parentBullet
   m_TagString: Untagged
@@ -9730,6 +9731,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &8749205139527894931
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6139556272346320499}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.1, y: 0.1, z: 0.2}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &9004426551322504603
 GameObject:
   m_ObjectHideFlags: 0
