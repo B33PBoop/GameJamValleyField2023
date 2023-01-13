@@ -51,7 +51,6 @@ public class PlantsAI : MonoBehaviour
         waterLevel = 0.5f;
         plantProgressBar.GetComponent<Slider>().value = waterLevel;
         player = GameObject.FindGameObjectWithTag("Player");
-        //plantUI.transform.LookAt(AlignPosition.transform);
     }
 
     // Update is called once per frame
