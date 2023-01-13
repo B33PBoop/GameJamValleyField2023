@@ -8,7 +8,6 @@ public class BoutonsMenu : MonoBehaviour
 {
     public static bool persoA = true;
     public static float intensiteSon;
-    public Slider mainSlider;
     public GameObject options;
     public GameObject credit;
     // Start is called before the first frame update
@@ -18,11 +17,6 @@ public class BoutonsMenu : MonoBehaviour
         persoA = true;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        intensiteSon = mainSlider.value;
-    }
     public void OuvrirOptions() {
         options.SetActive(true);
     }
