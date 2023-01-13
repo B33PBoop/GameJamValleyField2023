@@ -17,6 +17,8 @@ TagManager:
   - Dig
   - Boss
   - sons
+  - FireBuff
+  - HPBuff
   layers:
   - Default
   - TransparentFX

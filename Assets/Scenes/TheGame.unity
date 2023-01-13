@@ -30184,6 +30184,11 @@ MonoBehaviour:
   isDashing: 0
   flamingMode: 0
   animator: {fileID: 4867565839127878138}
+  image1: {fileID: 0}
+  image2: {fileID: 0}
+  image3: {fileID: 0}
+  plein: {fileID: 0}
+  vide: {fileID: 0}
 --- !u!136 &8935141447806541942
 CapsuleCollider:
   m_ObjectHideFlags: 0
