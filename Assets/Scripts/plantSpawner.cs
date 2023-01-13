@@ -7,7 +7,7 @@ public class plantSpawner : MonoBehaviour
     public List<GameObject> spawnList = new List<GameObject>();
 
     public bool inWave = false;
-
+    
     public int waveNumber = 1;
     public float waveTimer;
     public float waveTimerSteps;

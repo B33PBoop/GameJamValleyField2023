@@ -46,6 +46,10 @@ public class playerController : MonoBehaviour
     public Texture plein;
     public Texture vide;
 
+    public GameObject perso1;
+    public GameObject perso2;
+
+
     private void Start()
     {
         
