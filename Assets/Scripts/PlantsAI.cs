@@ -98,7 +98,7 @@ public class PlantsAI : MonoBehaviour
             if (fullGrown && waterLevel >= 1 && !used)
             {
                 //one-time resource/score/health gain
-                int lootItem = UnityEngine.Random.Range(0, 3);
+                int lootItem = UnityEngine.Random.Range(0, 4);
                 GameObject HPBuff = Instantiate(lootTable[lootItem], player.transform.position, Quaternion.identity);
                 used = true;
                 plantEvents.nbPlanteWatered += 1;
