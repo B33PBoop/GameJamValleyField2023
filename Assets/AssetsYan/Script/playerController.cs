@@ -231,6 +231,15 @@ public class playerController : MonoBehaviour
             Invoke("IsFlammingTime", 3f);
             flamingMode = true;
         }
+        if (collider.gameObject.tag == "Projectile")
+        {
+            HP = HP + 1;
+        }
+        if (collider.gameObject.tag == "FireBuff")
+        {
+            Invoke("IsFlammingTime", 3f);
+            flamingMode = true;
+        }
     }
     void DigAction()
     {
