@@ -31,6 +31,7 @@ public class playerController : MonoBehaviour
     public bool isSlow = false;
     public bool isStop = false;
     public bool isDashing = false;
+    public bool IsDigging = false;
 
     public bool flamingMode = false;
 
@@ -69,10 +70,11 @@ public class playerController : MonoBehaviour
             isSlow = false;
         }
         //Tant que le bouton gauche de la souris est enfonc�
-        if (Input.GetMouseButton(1) && isDashing == false)
+        if (Input.GetMouseButton(1) && isDashing == false && IsDigging == false)
         {
             //Le joueur Dig
             digeffect.SetActive(true);
+            IsDigging = true;
             isStop = true;
             Invoke("DigAction", 1f);
             animator.SetBool("isDig", true);
@@ -85,6 +87,12 @@ public class playerController : MonoBehaviour
             Invoke("IsDashingDowntime", 0.5f);
             animator.SetBool("isDig", false);
         }
+
+        if (Input.GetMouseButtonUp(1) && isDashing == false)
+        {
+            Invoke("DigAction", 1f);
+        }
+
         if (Input.GetKeyDown("space") && isDashing == false)
         {
             animator.SetTrigger("Dash");
