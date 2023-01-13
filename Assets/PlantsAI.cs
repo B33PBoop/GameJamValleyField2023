@@ -28,6 +28,10 @@ public class PlantsAI : MonoBehaviour
     public GameObject plantUI;
     public GameObject plantProgressBar;
 
+    public GameObject Skin;
+    public Material BurnMat;
+    public bool IsBurn = false;
+
     //public GameObject AlignPosition;
     // Start is called before the first frame update
     void Start()
@@ -41,57 +45,60 @@ public class PlantsAI : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        
-        Vector3 targetPostition = new Vector3(player.transform.position.x,
-        this.transform.position.y,
-        player.transform.position.z);
-        
-        if(angry && trackPlayer)
+        if (!IsBurn)
         {
-            this.transform.LookAt(targetPostition);
+            Vector3 targetPostition = new Vector3(player.transform.position.x,
+            this.transform.position.y,
+            player.transform.position.z);
+
+            if (angry && trackPlayer)
+            {
+                this.transform.LookAt(targetPostition);
+            }
+
+
+
+            if (growth < 1 && !fullGrown)
+            {
+                growth += 0.005f;
+                plant.transform.localScale = new Vector3(growth, growth, growth);
+            }
+            else
+            {
+                fullGrown = true;
+            }
+
+            if (fullGrown && waterLevel >= 0)
+            {
+                waterLevel -= waterDrainSpeed;
+                plantProgressBar.GetComponent<Slider>().value = waterLevel;
+            }
+
+            if (fullGrown && waterLevel >= 1 && !used)
+            {
+                //one-time resource/score/health gain
+                //GameObject HPBuff = Instantiate(prefabPlante, spawnList[random].GetComponent<Transform>().position, Quaternion.identity);
+            }
+
+            if (waterLevel <= 0)
+            {
+                angry = true;
+                //vfx?
+            }
+
+            //Si la plante est compl�tement pouss�e, fach�e, et que sont timer entre tir est termin�
+            if (fullGrown && angry && shootCD <= 0 && trackPlayer)
+            {
+                //la plante tire vers le joueur
+                launchProjectile();
+
+                //puis elle doit attendre avant de tirer � nouveau
+                shootCD = 1f;
+            }
+
+            shootCD -= 0.01f;
         }
         
-
-
-        if (growth < 1 && !fullGrown)
-        {
-            growth += 0.005f;
-            plant.transform.localScale = new Vector3(growth, growth, growth);
-        } 
-        else
-        {
-            fullGrown = true;
-        }
-       
-        if(fullGrown && waterLevel >= 0)
-        {
-            waterLevel -= waterDrainSpeed;
-            plantProgressBar.GetComponent<Slider>().value = waterLevel;
-        }
-
-        if(fullGrown && waterLevel >=1 && !used)
-        {
-            //one-time resource/score/health gain
-            //GameObject HPBuff = Instantiate(prefabPlante, spawnList[random].GetComponent<Transform>().position, Quaternion.identity);
-        }
-
-        if(waterLevel <= 0)
-        {
-            angry = true;
-            //vfx?
-        }
-
-        //Si la plante est compl�tement pouss�e, fach�e, et que sont timer entre tir est termin�
-        if (fullGrown && angry && shootCD <= 0 && trackPlayer)
-        {
-            //la plante tire vers le joueur
-            launchProjectile();
-
-            //puis elle doit attendre avant de tirer � nouveau
-            shootCD = 1f;
-        }
-
-        shootCD -= 0.01f;
     }
 
     public void launchProjectile()
@@ -107,5 +114,15 @@ public class PlantsAI : MonoBehaviour
             waterLevel += waterDrainSpeed*2.5f;
             plantProgressBar.GetComponent<Slider>().value = waterLevel;
         }
+        if (ObjCollider.gameObject.tag == "Fire" && !IsBurn)
+        {
+            Invoke("GotBurnt", 1f);
+            IsBurn = true;
+            Skin.GetComponent<SkinnedMeshRenderer>().material = BurnMat;
+        };
+    }
+    void GotBurnt()
+    {
+        Destroy(this.gameObject);
     }
 }
