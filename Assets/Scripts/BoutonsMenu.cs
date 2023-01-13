@@ -6,20 +6,28 @@ using UnityEngine.UI;
 
 public class BoutonsMenu : MonoBehaviour
 {
-    public static bool persoA = true;
-    public static float IntensiteSon = 100;
+    public bool persoA = true;
+    public static float intensiteSon;
     public Slider mainSlider;
+    public GameObject options;
+    public GameObject credit;
     // Start is called before the first frame update
     void Start()
     {
+        DontDestroyOnLoad(gameObject);
         persoA = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        PlayerPrefs.SetFloat("volume", mainSlider.value);
-        Debug.Log("volume".ToString());
+        intensiteSon = mainSlider.value;
+    }
+    public void OuvrirOptions() {
+        options.SetActive(true);
+    }
+    public void OuvrirCredit() {
+        credit.SetActive(true);
     }
     public void ChangerScene()
     {
@@ -33,5 +41,13 @@ public class BoutonsMenu : MonoBehaviour
     public void PersoB()
     {
         persoA = false;
+    }
+    public void FermeMenuOption()
+    {
+        options.SetActive(false);
+    }
+    public void FermeMenuCredit()
+    {
+        credit.SetActive(false);
     }
 }
