@@ -18,8 +18,11 @@ public class playerController : MonoBehaviour
 
     public int HP = 3;
     private bool isDead = false;
-
+    private bool isSlow = false;
     private bool isStop = false;
+
+    public Animator animator;
+
 
     private void Start()
     {
@@ -42,6 +45,11 @@ public class playerController : MonoBehaviour
             if (move != Vector3.zero)
             {
                 gameObject.transform.forward = move;
+                animator.SetBool("IsWalk", true);
+            }
+            else
+            {
+                animator.SetBool("IsWalk", false);
             }
 
             playerVelocity.y += gravityValue * Time.deltaTime;
@@ -62,11 +70,13 @@ public class playerController : MonoBehaviour
         {
             //Le joueur arrose
             waterArea.SetActive(true);
+            animator.SetBool("IsWater", true);
         }
         else
         {
             //Sinon, il n'arrose pas
             waterArea.SetActive(false);
+            animator.SetBool("IsWater", false);
         }
         //Tant que le bouton gauche de la souris est enfoncé
         if (Input.GetMouseButton(1))
@@ -74,12 +84,14 @@ public class playerController : MonoBehaviour
             //Le joueur Dig
             digArea.SetActive(true);
             isStop = true;
+            animator.SetBool("IsFire", true);
         }
         else
         {
             //Sinon, il n'arrose pas
             digArea.SetActive(false);
             isStop = false;
+            animator.SetBool("IsFire", false);
         }
 
         if (HP <= 0 && isDead == false)

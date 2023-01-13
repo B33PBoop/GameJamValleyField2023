@@ -10228,6 +10228,7 @@ MonoBehaviour:
   waterArea: {fileID: 4333616381994320090}
   digArea: {fileID: 4333616383051043012}
   HP: 3
+  animator: {fileID: 7994681005228139443}
 --- !u!136 &8935141447806541942
 CapsuleCollider:
   m_ObjectHideFlags: 0
