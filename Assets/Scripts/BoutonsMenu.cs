@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class BoutonsMenu : MonoBehaviour
 {
-    public static bool persoA = true;
+    public bool persoA = true;
     public static float intensiteSon;
     public Slider mainSlider;
     public GameObject options;
