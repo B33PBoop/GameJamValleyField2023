@@ -43922,3 +43922,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentBalle: {fileID: 1097708987}
   zoneInstanciable: {fileID: 47448043}
+  isCactus: 1
+  isBoss: 0
+  playerInRange: 0

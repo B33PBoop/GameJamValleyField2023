@@ -2454,7 +2454,8 @@ AnimationClip:
   - time: 2.625
     functionName: AttackCactus
     data: 
-    objectReferenceParameter: {fileID: 0}
+    objectReferenceParameter: {fileID: 11500000, guid: 507efcdb848e426498916afd9c845533,
+      type: 3}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
