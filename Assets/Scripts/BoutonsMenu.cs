@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class BoutonsMenu : MonoBehaviour
 {
     public static bool persoA = true;
-    public static float IntensiteSon = 100;
+    public static float intensiteSon;
     public Slider mainSlider;
     // Start is called before the first frame update
     void Start()
@@ -18,8 +18,8 @@ public class BoutonsMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        PlayerPrefs.SetFloat("volume", mainSlider.value);
-        Debug.Log("volume".ToString());
+        intensiteSon = mainSlider.value;
+        Debug.Log(mainSlider.value);
     }
     public void ChangerScene()
     {
