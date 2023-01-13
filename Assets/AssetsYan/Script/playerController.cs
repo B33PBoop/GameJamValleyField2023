@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class playerController : MonoBehaviour
 {
@@ -35,6 +36,12 @@ public class playerController : MonoBehaviour
 
     public Animator animator;
 
+    public RawImage image1;
+    public RawImage image2;
+    public RawImage image3;
+
+    public Texture plein;
+    public Texture vide;
 
     private void Start()
     {
@@ -44,7 +51,7 @@ public class playerController : MonoBehaviour
     void Update()
     {
         //
-        //Tant que le bouton gauche de la souris est enfoncé
+        //Tant que le bouton gauche de la souris est enfoncï¿½
         if (Input.GetMouseButton(0) && isDashing == false && flamingMode == false)
         {
             //Le joueur arrose
@@ -61,7 +68,7 @@ public class playerController : MonoBehaviour
             animator.SetBool("IsWater", false);
             isSlow = false;
         }
-        //Tant que le bouton gauche de la souris est enfoncé
+        //Tant que le bouton gauche de la souris est enfoncï¿½
         if (Input.GetMouseButton(1) && isDashing == false)
         {
             //Le joueur Dig
@@ -169,6 +176,30 @@ public class playerController : MonoBehaviour
             Debug.Log("player is dead - GameOver");
             isDead = true;
         }
+        switch (HP)
+        {
+            case 1:
+                image1.texture = plein;
+                image2.texture = vide;
+                image3.texture = vide;
+
+                break;
+            case 2:
+                image1.texture = plein;
+                image2.texture = plein;
+                image3.texture = vide;
+                break;
+            case 3:
+                image1.texture = plein;
+                image2.texture = plein;
+                image3.texture = plein;
+                break;
+            default:
+                image1.texture = vide;
+                image2.texture = vide;
+                image3.texture = vide;
+                break;
+        }
     }
     void OnTriggerEnter(Collider collider)
     {
@@ -176,7 +207,10 @@ public class playerController : MonoBehaviour
         {
             isStop = true;
             Invoke("IsDashingDowntime", 0.5f);
+            Debug.Log("je hit qqchose");
+
             HP -= 1;
+            Destroy(collider.gameObject);
         }
         if (collider.gameObject.tag == "FireBuff")
         {

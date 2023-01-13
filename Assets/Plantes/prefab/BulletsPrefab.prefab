@@ -169,7 +169,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.4
+      scalar: 0.5
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -285,7 +285,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.02
+      scalar: 0.03
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -4821,12 +4821,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 875631432597545049}
-  - component: {fileID: 875631432597545054}
   - component: {fileID: 875631432597545055}
   - component: {fileID: 875631432597545048}
   m_Layer: 0
   m_Name: particule
-  m_TagString: balle
+  m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4848,19 +4847,6 @@ Transform:
   m_Father: {fileID: 875631432847958178}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &875631432597545054
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 875631432597545050}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.1, y: 0.1, z: 0.2}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!198 &875631432597545055
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -9650,9 +9636,10 @@ GameObject:
   m_Component:
   - component: {fileID: 875631432847958178}
   - component: {fileID: 875631432847958176}
+  - component: {fileID: 7482659346634837087}
   m_Layer: 0
   m_Name: parentBullet (1)
-  m_TagString: Untagged
+  m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9685,6 +9672,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27df86853433eca4082e187f3ea2cb14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &7482659346634837087
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 875631432847958179}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.1, y: 0.1, z: 0.2}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &875631433116963850
 GameObject:
   m_ObjectHideFlags: 0
@@ -9694,12 +9694,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 875631433116963849}
-  - component: {fileID: 875631433116963854}
   - component: {fileID: 875631433116963855}
   - component: {fileID: 875631433116963848}
   m_Layer: 0
   m_Name: particule
-  m_TagString: balle
+  m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9721,19 +9720,6 @@ Transform:
   m_Father: {fileID: 875631433912727982}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &875631433116963854
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 875631433116963850}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.1, y: 0.1, z: 0.2}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!198 &875631433116963855
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -14522,12 +14508,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 875631433235143179}
-  - component: {fileID: 875631433235143176}
   - component: {fileID: 875631433235143177}
   - component: {fileID: 875631433235143178}
   m_Layer: 0
   m_Name: particule
-  m_TagString: balle
+  m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14549,19 +14534,6 @@ Transform:
   m_Father: {fileID: 875631434372527147}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &875631433235143176
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 875631433235143188}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.1, y: 0.1, z: 0.2}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!198 &875631433235143177
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -19510,7 +19482,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.4
+      scalar: 0.5
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -19626,7 +19598,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.02
+      scalar: 0.03
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -24163,9 +24135,10 @@ GameObject:
   m_Component:
   - component: {fileID: 875631433912727982}
   - component: {fileID: 875631433912727980}
+  - component: {fileID: 5171800459728179376}
   m_Layer: 0
   m_Name: parentBullet
-  m_TagString: Untagged
+  m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24198,6 +24171,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27df86853433eca4082e187f3ea2cb14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &5171800459728179376
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 875631433912727983}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.1, y: 0.1, z: 0.2}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &875631434019578448
 GameObject:
   m_ObjectHideFlags: 0
@@ -24421,7 +24407,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 1, b: 1, a: 1}
+      maxColor: {r: 1, g: 0.42477313, b: 0, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -24483,7 +24469,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 10
+      scalar: 15
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -29017,7 +29003,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 6271573414225017425, guid: 2de2a04e9da22e74997272b685a8cd64, type: 3}
+  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -29083,7 +29069,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &875631434036271687
 Transform:
   m_ObjectHideFlags: 0
@@ -29325,7 +29311,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 1, b: 1, a: 1}
+      maxColor: {r: 1, g: 0.42477313, b: 0, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -29387,7 +29373,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 10
+      scalar: 15
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -33921,7 +33907,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 6271573414225017425, guid: 2de2a04e9da22e74997272b685a8cd64, type: 3}
+  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -34141,7 +34127,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.4
+      scalar: 0.5
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -34257,7 +34243,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.02
+      scalar: 0.03
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -39007,7 +38993,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 1, b: 1, a: 1}
+      maxColor: {r: 1, g: 0.42477313, b: 0, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -39069,7 +39055,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 10
+      scalar: 15
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -43603,7 +43589,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 6271573414225017425, guid: 2de2a04e9da22e74997272b685a8cd64, type: 3}
+  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -43664,9 +43650,10 @@ GameObject:
   m_Component:
   - component: {fileID: 875631434372527147}
   - component: {fileID: 875631434372527145}
+  - component: {fileID: 227635373476683951}
   m_Layer: 0
   m_Name: parentBullet (2)
-  m_TagString: Untagged
+  m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -43699,3 +43686,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27df86853433eca4082e187f3ea2cb14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &227635373476683951
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 875631434372527156}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.1, y: 0.1, z: 0.2}
+  m_Center: {x: 0, y: 0, z: 0}

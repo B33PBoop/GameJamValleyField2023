@@ -14,6 +14,7 @@ TagManager:
   - FxTemporaire
   - Dig
   - Boss
+  - sons
   layers:
   - Default
   - TransparentFX
