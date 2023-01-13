@@ -32,7 +32,18 @@ public class Projectile : MonoBehaviour
     {
         if (collider.gameObject.tag != "Environement")
         {
+            //Projectile: 35
+            if (collider.gameObject.tag == "Player")
+            {
+                int hit = UnityEngine.Random.Range(6, 7);
+                GameObject lesSons = GameObject.FindGameObjectWithTag("sons");
+                AudioClip plrHit = lesSons.GetComponent<sonsScript>().sons[hit];
+                lesSons.AddComponent<AudioSource>();
+                lesSons.GetComponent<AudioSource>().PlayOneShot(plrHit);
+                Destroy(lesSons.GetComponent<AudioSource>(), 2);
+            }
             Destroy(gameObject);
         }
+        
     }
 }
