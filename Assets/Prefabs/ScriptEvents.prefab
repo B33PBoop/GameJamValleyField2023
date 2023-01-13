@@ -54,3 +54,9 @@ MonoBehaviour:
   startWave: 1
   prefabList:
   - {fileID: 4452899362705696147, guid: ff240a5f33f0423479f6bae0d95cebec, type: 3}
+  - {fileID: 4452899362705696147, guid: ff240a5f33f0423479f6bae0d95cebec, type: 3}
+  - {fileID: 8225438324002113878, guid: 0551d4e84d1cea147a18fae77f2ed178, type: 3}
+  - {fileID: 4452899362705696147, guid: ff240a5f33f0423479f6bae0d95cebec, type: 3}
+  - {fileID: 4220754289516390429, guid: 3dd0a80aea5a0984ea7c5a218f34d326, type: 3}
+  - {fileID: 8225438324002113878, guid: 0551d4e84d1cea147a18fae77f2ed178, type: 3}
+  - {fileID: 4452899362705696147, guid: ff240a5f33f0423479f6bae0d95cebec, type: 3}

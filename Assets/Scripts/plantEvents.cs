@@ -6,7 +6,7 @@ public class plantEvents : MonoBehaviour
 {
     public GameObject refTableau;
     public GameObject prefabEmpty;
-
+    public static int nbPlanteWatered = 0;
     public bool isDead = false;
     // Start is called before the first frame update
     void Start()
@@ -29,14 +29,5 @@ public class plantEvents : MonoBehaviour
         gameObject.tag = "plante";
     }
 
-    public IEnumerator TriggerDeath()
-    {
-        isDead = true;
-        //play death anim (shadergraph)
-        yield return new WaitForSeconds(0.666f);
-        Instantiate(prefabEmpty, this.gameObject.transform);
-        Destroy(gameObject);
-        refTableau.GetComponent<plantSpawner>().spawnList.Add(prefabEmpty);
-        yield return null;
-    }
+    
 }
