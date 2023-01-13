@@ -36,6 +36,13 @@ public class PlantsAI : MonoBehaviour
     public GameObject[] lootTable;
     
 
+    public GameObject DigEffect;
+
+    public GameObject plantTopParent;
+
+    public GameObject prefabEmpty;
+
+    public GameObject refTableau;
 
     //public GameObject AlignPosition;
     // Start is called before the first frame update
@@ -145,11 +152,13 @@ public class PlantsAI : MonoBehaviour
         {
             Invoke("GotBurnt", 1f);
             IsBurn = true;
-            Skin.GetComponent<SkinnedMeshRenderer>().material = BurnMat;
+            GameObject digEffect = Instantiate(DigEffect, plant.transform);
         };
     }
     void GotBurnt()
     {
-        Destroy(this.gameObject, 1.5f);
+        GameObject emptyClone = Instantiate(prefabEmpty, this.gameObject.transform);
+        Destroy(plantTopParent);
+        refTableau.GetComponent<plantSpawner>().spawnList.Add(emptyClone);
     }
 }
