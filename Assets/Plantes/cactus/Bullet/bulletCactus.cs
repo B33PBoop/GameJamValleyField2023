@@ -9,4 +9,11 @@ public class bulletCactus : MonoBehaviour
     {
          transform.Translate(Vector3.forward * Time.deltaTime);
     }
+    void OnTriggerEnter(Collider collider)
+    {
+        if (collider.gameObject.tag == "Player")
+        {
+            Destroy(gameObject);
+        }
+    }
 }

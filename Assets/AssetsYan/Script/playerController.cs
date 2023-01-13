@@ -65,7 +65,7 @@ public class playerController : MonoBehaviour
         }
 
         //
-        //Tant que le bouton gauche de la souris est enfoncé
+        //Tant que le bouton gauche de la souris est enfoncï¿½
         if (Input.GetMouseButton(0))
         {
             //Le joueur arrose
@@ -78,7 +78,7 @@ public class playerController : MonoBehaviour
             waterArea.SetActive(false);
             animator.SetBool("IsWater", false);
         }
-        //Tant que le bouton gauche de la souris est enfoncé
+        //Tant que le bouton gauche de la souris est enfoncï¿½
         if (Input.GetMouseButton(1))
         {
             //Le joueur Dig
@@ -99,12 +99,33 @@ public class playerController : MonoBehaviour
             Debug.Log("player is dead - GameOver");
             isDead = true;
         }
+        switch (HP)
+        {
+            case 1:
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+            default:
+                break;
+        }
     }
     void OnTriggerEnter(Collider collider)
     {
         if (collider.gameObject.tag == "Projectile")
         {
             HP -= 1;
+            int hit = UnityEngine.Random.Range(6, 7);
+            GameObject lesSons = GameObject.FindGameObjectWithTag("sons");
+            AudioClip plrHit = lesSons.GetComponent<sonsScript>().sons[hit];
+            gameObject.GetComponent<AudioSource>().PlayOneShot(plrHit);
+        }
+        if (collider.gameObject.tag == "lance-flame")
+        {
+            GameObject lesSons = GameObject.FindGameObjectWithTag("sons");
+            AudioClip lanceFlame = lesSons.GetComponent<sonsScript>().sons[10];
+            gameObject.GetComponent<AudioSource>().PlayOneShot(lanceFlame);
         }
     }
 }
