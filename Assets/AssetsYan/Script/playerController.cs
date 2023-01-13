@@ -77,6 +77,7 @@ public class playerController : MonoBehaviour
             //Sinon, il n'arrose pas
             waterArea.SetActive(false);
             animator.SetBool("IsWater", false);
+            waterArea.GetComponent<AudioSource>().SetScheduledStartTime(0f);
         }
         //Tant que le bouton gauche de la souris est enfoncé
         if (Input.GetMouseButton(1))

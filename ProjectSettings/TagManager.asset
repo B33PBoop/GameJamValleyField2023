@@ -5,11 +5,12 @@ TagManager:
   serializedVersion: 2
   tags:
   - SpawnPoints
-  - Plant
+  - balle
   - Water
   - Projectile
+  - Terrain
+  - sons
   - Fire
-  - balle
   - Boss
   layers:
   - Default

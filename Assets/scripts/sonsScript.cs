@@ -33,15 +33,15 @@ public class sonsScript : MonoBehaviour
     /*
      * --- OÙ VONT LES SONS --- *
      
-        themeMusique: play on awake sur empty game object
+        themeMusique: play on awake sur empty game object   **
 
-        Ambiance: play on awake sur empty game object
+        Ambiance: play on awake sur empty game object   **
 
-        arrosage: play on awake sur water collider
+        arrosage: play on awake sur water collider  **
 
-        cactus: play on awake sur projectile
+        cactus: play on awake sur projectile    **
 
-        tournesol: play on awake sur laser
+        tournesol: play on awake sur laser  **
 
         cloche: PlantAI: if(fullGrown)
         {
@@ -50,7 +50,7 @@ public class sonsScript : MonoBehaviour
             GameObject lesSons = GameObject.FindGameObjectWithTag("sons");
             AudioClip cloche = lesSons.GetComponent<sonsScript>().sons[4];
             lesSons.GetComponent<AudioSource>().PlayOneShot(cloche);
-        }
+        }   **
 
 
         joueurHit1-2: PlayerController: if (collider.gameObject.tag == "Projectile")
@@ -59,8 +59,8 @@ public class sonsScript : MonoBehaviour
             int hit = UnityEngine.Random.Range(6, 7);
             GameObject lesSons = GameObject.FindGameObjectWithTag("sons");
             AudioClip plrHit = lesSons.GetComponent<sonsScript>().sons[hit];
-            lesSons.GetComponent<AudioSource>().PlayOneShot(plrHit);
-        }
+            gameObject.GetComponent<AudioSource>().PlayOneShot(plrHit);
+        } **
 
 
         planteMechante: PlantAI: if(waterLevel <= 0)
@@ -70,7 +70,7 @@ public class sonsScript : MonoBehaviour
             GameObject lesSons = GameObject.FindGameObjectWithTag("sons");
             AudioClip angry = lesSons.GetComponent<sonsScript>().sons[8];
             lesSons.GetComponent<AudioSource>().PlayOneShot(angry);
-        }
+        } ** ANNULE **
 
 
         feu: PlantAI: private void OnTriggerStay(Collider ObjCollider)
@@ -88,6 +88,12 @@ public class sonsScript : MonoBehaviour
                 lesSons.GetComponent<AudioSource>().PlayOneShot(feu);
                 Destroy(gameObject, 1.5f);
             }
+        }   **
+        lance-flame: playerController: if (collider.gameObject.tag == "lance-flame")
+        {
+            GameObject lesSons = GameObject.FindGameObjectWithTag("sons");
+            AudioClip lance-flame = lesSons.GetComponent<sonsScript>().sons[10];
+            gameObject.GetComponent<AudioSource>().PlayOneShot(lance-flame);
         }
      
      */
