@@ -13,35 +13,45 @@ public class PlantsAI : MonoBehaviour
     //element pour que l'enemi envoie des projectiles
     public GameObject projectile;
     public GameObject projectileSpawn;
-    private float shootCD = 0;
+    public float shootCD = 0;
 
-    //elements utilisés pour l'évolution de la plante
+    //elements utilisï¿½s pour l'ï¿½volution de la plante
     public float waterLevel;
     public float growth = 0.2f;
     public float waterDrainSpeed = 0.005f;
     public bool fullGrown = false;
     public bool angry = false;
     public bool used = false;
+
+    public bool trackPlayer = true;
     public GameObject plant;
     public GameObject plantUI;
     public GameObject plantProgressBar;
 
+    public GameObject cameraMain;
     // Start is called before the first frame update
     void Start()
     {
         waterLevel = 0.5f;
         plantProgressBar.GetComponent<Slider>().value = waterLevel;
         player = GameObject.FindGameObjectWithTag("Player");
+        cameraMain = GameObject.FindGameObjectWithTag("MainCamera");
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-
+        plantUI.transform.LookAt(cameraMain .transform);
         Vector3 targetPostition = new Vector3(player.transform.position.x,
         this.transform.position.y,
         player.transform.position.z);
-        this.transform.LookAt(targetPostition);
+        
+        if(angry && trackPlayer)
+        {
+            this.transform.LookAt(targetPostition);
+        }
+        
+
 
         if (growth < 1 && !fullGrown)
         {
@@ -71,13 +81,13 @@ public class PlantsAI : MonoBehaviour
             //vfx?
         }
 
-        //Si la plante est complètement poussée, fachée, et que sont timer entre tir est terminé
-        if (fullGrown && angry && shootCD <= 0)
+        //Si la plante est complï¿½tement poussï¿½e, fachï¿½e, et que sont timer entre tir est terminï¿½
+        if (fullGrown && angry && shootCD <= 0 && trackPlayer)
         {
             //la plante tire vers le joueur
             Invoke("launchProjectile", 0f);
 
-            //puis elle doit attendre avant de tirer à nouveau
+            //puis elle doit attendre avant de tirer ï¿½ nouveau
             shootCD = 1f;
         }
 
@@ -86,7 +96,7 @@ public class PlantsAI : MonoBehaviour
 
     public void launchProjectile()
     {
-        GameObject projectileClone = Instantiate(projectile, projectileSpawn.transform.position, projectileSpawn.transform.rotation);
+        gameObject.GetComponentInChildren<Animator>().SetBool("Tire",true);
     }
 
     private void OnTriggerStay(Collider ObjCollider)
