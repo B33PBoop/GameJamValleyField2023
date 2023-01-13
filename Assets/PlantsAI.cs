@@ -9,6 +9,7 @@ public class PlantsAI : MonoBehaviour
 {
     //le hero
     private GameObject player;
+    public GameObject PlantTotal;
 
     //element pour que l'enemi envoie des projectiles
     public GameObject projectile;
@@ -31,6 +32,8 @@ public class PlantsAI : MonoBehaviour
     public GameObject Skin;
     public Material BurnMat;
     public bool IsBurn = false;
+
+    public GameObject DigEffect;
 
     //public GameObject AlignPosition;
     // Start is called before the first frame update
@@ -120,6 +123,17 @@ public class PlantsAI : MonoBehaviour
             IsBurn = true;
             Skin.GetComponent<SkinnedMeshRenderer>().material = BurnMat;
         };
+        if (ObjCollider.gameObject.tag == "Dig" && !IsBurn)
+        {
+            GameObject digEffect = Instantiate(DigEffect, this.GetComponent<Transform>().position, this.GetComponent<Transform>().rotation);
+            IsBurn = true;
+            Skin.GetComponent<SkinnedMeshRenderer>().material = BurnMat;
+            Destroy(PlantTotal.gameObject);
+        };
+    }
+    void GotDig()
+    {
+        Destroy(this.gameObject);
     }
     void GotBurnt()
     {

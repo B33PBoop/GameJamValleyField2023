@@ -10,6 +10,9 @@ TagManager:
   - Projectile
   - Fire
   - balle
+  - Terrain
+  - FxTemporaire
+  - Dig
   layers:
   - Default
   - TransparentFX
