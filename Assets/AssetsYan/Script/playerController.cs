@@ -278,7 +278,7 @@ public class playerController : MonoBehaviour
     }
     void IsFlammingTime()
     {
-        Invoke("IsFlammingTime", 3f);
+        Invoke("FlammingDone", 3f);
         flamingMode = true;
     }
     void FlammingDone()
@@ -289,8 +289,6 @@ public class playerController : MonoBehaviour
     {
         if(DigTimer >= 0){
             DigTimer = DigTimer - 1;
-        }
-        else{
         }
     }
 }
