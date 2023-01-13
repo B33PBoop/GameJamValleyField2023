@@ -18,7 +18,7 @@ public class PlantsAI : MonoBehaviour
     //elements utilis�s pour l'�volution de la plante
     public float waterLevel;
     public float growth = 0.2f;
-    public float waterDrainSpeed = 0.005f;
+    public float waterDrainSpeed = 0.0025f;
     public bool fullGrown = false;
     public bool angry = false;
     public bool used = false;
@@ -63,13 +63,13 @@ public class PlantsAI : MonoBehaviour
             fullGrown = true;
         }
        
-        if(fullGrown)
+        if(fullGrown && waterLevel >= 0)
         {
             waterLevel -= waterDrainSpeed;
             plantProgressBar.GetComponent<Slider>().value = waterLevel;
         }
 
-        if(fullGrown && waterLevel>=1 && !used)
+        if(fullGrown && waterLevel >=1 && !used)
         {
             //one-time resource/score/health gain
             //GameObject HPBuff = Instantiate(prefabPlante, spawnList[random].GetComponent<Transform>().position, Quaternion.identity);
@@ -102,7 +102,7 @@ public class PlantsAI : MonoBehaviour
     private void OnTriggerStay(Collider ObjCollider)
     {
         //Si une plante rentre dans l'aire d'arrosage
-        if (ObjCollider.gameObject.tag == "Water" && !angry && waterLevel <=1 )
+        if (ObjCollider.gameObject.tag == "Water" && !angry && waterLevel <=1.5 )
         {
             waterLevel += waterDrainSpeed*2.5f;
             plantProgressBar.GetComponent<Slider>().value = waterLevel;
