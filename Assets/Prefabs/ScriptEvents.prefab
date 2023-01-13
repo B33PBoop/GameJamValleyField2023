@@ -44,8 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42692fc41b274254fa9ad3180bc09276, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabPlante: {fileID: 384083653442696962, guid: f593486379c340f44b745fbcbb23d783,
-    type: 3}
   spawnList: []
   inWave: 0
   waveNumber: 1
@@ -54,3 +52,5 @@ MonoBehaviour:
   respawnTimer: 10
   respawnTimerSteps: 0.5
   startWave: 1
+  prefabList:
+  - {fileID: 4452899362705696147, guid: ff240a5f33f0423479f6bae0d95cebec, type: 3}

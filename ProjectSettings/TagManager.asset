@@ -5,7 +5,12 @@ TagManager:
   serializedVersion: 2
   tags:
   - SpawnPoints
+  - Plant
+  - Water
+  - Projectile
+  - Fire
   - balle
+  - Boss
   layers:
   - Default
   - TransparentFX

@@ -13,89 +13,127 @@ public class PlantsAI : MonoBehaviour
     //element pour que l'enemi envoie des projectiles
     public GameObject projectile;
     public GameObject projectileSpawn;
-    private float shootCD = 0;
+    public float shootCD = 0;
 
-    //elements utilisés pour l'évolution de la plante
+    //elements utilisï¿½s pour l'ï¿½volution de la plante
     public float waterLevel;
     public float growth = 0.2f;
-    public float waterDrainSpeed = 0.005f;
+    public float waterDrainSpeed = 0.0025f;
     public bool fullGrown = false;
     public bool angry = false;
     public bool used = false;
+
+    public bool trackPlayer = true;
     public GameObject plant;
     public GameObject plantUI;
     public GameObject plantProgressBar;
 
+    public GameObject particules;
+    public GameObject Skin;
+    public Material BurnMat;
+    public bool IsBurn = false;
+
+
+    //public GameObject AlignPosition;
     // Start is called before the first frame update
     void Start()
     {
         waterLevel = 0.5f;
         plantProgressBar.GetComponent<Slider>().value = waterLevel;
         player = GameObject.FindGameObjectWithTag("Player");
+        //plantUI.transform.LookAt(AlignPosition.transform);
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-
-        Vector3 targetPostition = new Vector3(player.transform.position.x,
-        this.transform.position.y,
-        player.transform.position.z);
-        this.transform.LookAt(targetPostition);
-
-        if (growth < 1 && !fullGrown)
+        if (!IsBurn)
         {
-            growth += 0.005f;
-            plant.transform.localScale = new Vector3(growth, growth, growth);
-        } 
-        else
-        {
-            fullGrown = true;
+            Vector3 targetPostition = new Vector3(player.transform.position.x,
+            this.transform.position.y,
+            player.transform.position.z);
+
+            if (angry && trackPlayer)
+            {
+                this.transform.LookAt(targetPostition);
+            }
+
+
+
+            if (growth < 1 && !fullGrown && gameObject.tag != "Boss")
+            {
+                growth += 0.005f;
+                plant.transform.localScale = new Vector3(growth, growth, growth);
+            }
+            
+            else if(growth < 2.5 && !fullGrown && gameObject.tag == "Boss") 
+            {
+                growth+= 0.005f;
+                plant.transform.localScale = new Vector3(growth,(0.6f*growth),growth);
+            }
+            
+            else
+            {
+                fullGrown = true;
+            }
+
+            if (fullGrown && waterLevel >= 0)
+            {
+                waterLevel -= waterDrainSpeed;
+                plantProgressBar.GetComponent<Slider>().value = waterLevel;
+                // Skin.GetComponent<Renderer>().material.color = new Color(waterLevel*1/255,Skin.GetComponent<Renderer>().material.color.g,Skin.GetComponent<Renderer>().material.color.b);
+            }
+
+            if (fullGrown && waterLevel >= 1 && !used)
+            {
+                //one-time resource/score/health gain
+                //GameObject HPBuff = Instantiate(prefabPlante, spawnList[random].GetComponent<Transform>().position, Quaternion.identity);
+            }
+
+            if (waterLevel <= 0)
+            {
+                angry = true;
+                particules.SetActive(true);
+                //vfx?
+            }
+
+            //Si la plante est complï¿½tement poussï¿½e, fachï¿½e, et que sont timer entre tir est terminï¿½
+            if (fullGrown && angry && shootCD <= 0 && trackPlayer)
+            {
+                //la plante tire vers le joueur
+                launchProjectile();
+
+                //puis elle doit attendre avant de tirer ï¿½ nouveau
+                shootCD = 1f;
+            }
+
+            shootCD -= 0.01f;
         }
-       
-        if(fullGrown)
-        {
-            waterLevel -= waterDrainSpeed;
-            plantProgressBar.GetComponent<Slider>().value = waterLevel;
-        }
-
-        if(fullGrown && waterLevel>=1 && !used)
-        {
-            //one-time resource/score/health gain
-            //GameObject HPBuff = Instantiate(prefabPlante, spawnList[random].GetComponent<Transform>().position, Quaternion.identity);
-        }
-
-        if(waterLevel <= 0)
-        {
-            angry = true;
-            //vfx?
-        }
-
-        //Si la plante est complètement poussée, fachée, et que sont timer entre tir est terminé
-        if (fullGrown && angry && shootCD <= 0)
-        {
-            //la plante tire vers le joueur
-            Invoke("launchProjectile", 0f);
-
-            //puis elle doit attendre avant de tirer à nouveau
-            shootCD = 1f;
-        }
-
-        shootCD -= 0.01f;
+        
     }
 
     public void launchProjectile()
     {
-        GameObject projectileClone = Instantiate(projectile, projectileSpawn.transform.position, projectileSpawn.transform.rotation);
+        gameObject.GetComponentInChildren<Animator>().SetBool("Tire",true);
     }
 
     private void OnTriggerStay(Collider ObjCollider)
     {
         //Si une plante rentre dans l'aire d'arrosage
-        if (ObjCollider.gameObject.tag == "Water" && !angry && waterLevel <=1 )
+        if (ObjCollider.gameObject.tag == "Water" && !angry && waterLevel <=1.5 )
         {
             waterLevel += waterDrainSpeed*2.5f;
             plantProgressBar.GetComponent<Slider>().value = waterLevel;
         }
+        if (ObjCollider.gameObject.tag == "Fire" && !IsBurn)
+        {
+            Invoke("GotBurnt", 1f);
+            IsBurn = true;
+            Skin.GetComponent<SkinnedMeshRenderer>().material = BurnMat;
+        };
+    }
+    void GotBurnt()
+    {
+        Destroy(this.gameObject);
     }
 }

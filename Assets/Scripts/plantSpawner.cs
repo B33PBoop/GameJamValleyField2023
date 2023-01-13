@@ -42,11 +42,8 @@ public class plantSpawner : MonoBehaviour
     public IEnumerator StartSpawning(float waitTime)
     {
         inWave = true;
-        
         startWave = true;
-
-
-
+        
         while(startWave && spawnList.Count > 0)
         {
             yield return new WaitForSeconds(waitTime);
