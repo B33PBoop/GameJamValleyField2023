@@ -224,7 +224,6 @@ public class playerController : MonoBehaviour
             Debug.Log("je hit qqchose");
 
             HP -= 1;
-            Destroy(collider.gameObject);
         }
         if (collider.gameObject.tag == "FireBuff")
         {
