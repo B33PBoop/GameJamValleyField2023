@@ -7,6 +7,9 @@ TagManager:
   - SpawnPoints
   - Plant
   - Water
+  - Projectile
+  - Fire
+  - balle
   layers:
   - Default
   - TransparentFX
