@@ -44,10 +44,10 @@ public class BoutonsMenu : MonoBehaviour
     }
     public void FermeMenuOption()
     {
-        options.SetActive(true);
+        options.SetActive(false);
     }
     public void FermeMenuCredit()
     {
-        credit.SetActive(true);
+        credit.SetActive(false);
     }
 }
