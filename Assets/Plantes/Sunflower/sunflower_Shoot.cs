@@ -20,4 +20,8 @@ public class sunflower_Shoot : MonoBehaviour
     void EteindrePlante(){
         zoneDegat.SetActive(false);
     }
+
+    void ArretFollow(){
+
+    }
 }
