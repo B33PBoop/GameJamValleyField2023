@@ -205,6 +205,9 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 52063602}
   m_CullTransparentMesh: 1
+<<<<<<< HEAD
+>>>>>>> parent of f4183ba (scene load)
+=======
 >>>>>>> parent of f4183ba (scene load)
 --- !u!1 &195720142
 GameObject:
@@ -530,6 +533,9 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+<<<<<<< HEAD
+>>>>>>> parent of f4183ba (scene load)
+=======
 >>>>>>> parent of f4183ba (scene load)
 --- !u!1001 &298566620
 PrefabInstance:
@@ -757,7 +763,10 @@ CanvasRenderer:
   m_GameObject: {fileID: 336460764}
   m_CullTransparentMesh: 1
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> parent of f4183ba (scene load)
 --- !u!1 &385984805
 GameObject:
   m_ObjectHideFlags: 0
@@ -1276,7 +1285,10 @@ CanvasRenderer:
   m_GameObject: {fileID: 462494468}
   m_CullTransparentMesh: 1
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> parent of f4183ba (scene load)
 --- !u!1 &497186159
 GameObject:
   m_ObjectHideFlags: 0
@@ -1353,6 +1365,9 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 497186159}
   m_CullTransparentMesh: 1
+<<<<<<< HEAD
+>>>>>>> parent of f4183ba (scene load)
+=======
 >>>>>>> parent of f4183ba (scene load)
 --- !u!1001 &557758083
 PrefabInstance:
@@ -2024,6 +2039,9 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -81.8}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+<<<<<<< HEAD
+>>>>>>> parent of f4183ba (scene load)
+=======
 >>>>>>> parent of f4183ba (scene load)
 --- !u!1001 &890113485
 PrefabInstance:
@@ -2352,6 +2370,9 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 935634244}
   m_CullTransparentMesh: 1
+<<<<<<< HEAD
+>>>>>>> parent of f4183ba (scene load)
+=======
 >>>>>>> parent of f4183ba (scene load)
 --- !u!1 &1036740640
 GameObject:
@@ -2765,6 +2786,9 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1091352437}
   m_CullTransparentMesh: 1
+<<<<<<< HEAD
+>>>>>>> parent of f4183ba (scene load)
+=======
 >>>>>>> parent of f4183ba (scene load)
 --- !u!1 &1201677884
 GameObject:
@@ -3284,7 +3308,10 @@ PrefabInstance:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f53d8ddbe5b03c64da33a32ccf782ca5, type: 3}
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> parent of f4183ba (scene load)
 --- !u!1 &1585646032
 GameObject:
   m_ObjectHideFlags: 0
@@ -3329,6 +3356,9 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
+>>>>>>> parent of f4183ba (scene load)
+=======
 >>>>>>> parent of f4183ba (scene load)
 --- !u!1 &1601012264
 GameObject:
@@ -3610,6 +3640,9 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1745313849}
   m_CullTransparentMesh: 1
+<<<<<<< HEAD
+>>>>>>> parent of f4183ba (scene load)
+=======
 >>>>>>> parent of f4183ba (scene load)
 --- !u!1001 &1756691189
 PrefabInstance:
@@ -4360,7 +4393,10 @@ CanvasRenderer:
   m_GameObject: {fileID: 2048623809}
   m_CullTransparentMesh: 1
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> parent of f4183ba (scene load)
 --- !u!1 &2096130018
 GameObject:
   m_ObjectHideFlags: 0
@@ -4434,4 +4470,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2096130018}
   m_CullTransparentMesh: 1
+<<<<<<< HEAD
+>>>>>>> parent of f4183ba (scene load)
+=======
 >>>>>>> parent of f4183ba (scene load)
