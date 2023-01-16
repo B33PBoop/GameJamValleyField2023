@@ -50,33 +50,18 @@ public class playerController : MonoBehaviour
     public Texture plein;
     public Texture vide;
 
-    public GameObject perso1;
-    public GameObject perso2;
+    
 
     public GameObject persoMenuRef;
     public GameObject deathCanva;
 
     private void Start()
     {
-        //trouver l'objet qui contient le shit de perso1-perso2
-        persoMenuRef = GameObject.Find("GestionnaireMenu");
+      
     }
 
     void Update()
-    {
-        
-        if( persoMenuRef.GetComponent<BoutonsMenu>().persoA)
-        {
-            perso2.SetActive(true);
-            perso1.SetActive(false);
-        }
-
-        else
-        {
-            perso1.SetActive(true);
-            perso2.SetActive(false);
-        }
-        
+    {        
         //
         //Tant que le bouton gauche de la souris est enfonc�
         if (Input.GetMouseButton(0) && isDashing == false && flamingMode == false)
