@@ -2140,6 +2140,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PersonnageJoueur
       objectReference: {fileID: 0}
+    - target: {fileID: 3780231654317583469, guid: a27f25485ddb4d246bff702d961da145,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4557013926524040919, guid: a27f25485ddb4d246bff702d961da145,
         type: 3}
       propertyPath: m_RootOrder
@@ -4229,6 +4234,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 331e6b10926555c44ac77c524f97e98a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  persoA: 1
   mainSlider: {fileID: 2105538036}
   options: {fileID: 650263419}
   credit: {fileID: 1818091721}
@@ -4677,7 +4683,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1818091722
 RectTransform:
   m_ObjectHideFlags: 0

@@ -54,6 +54,7 @@ public class playerController : MonoBehaviour
     public GameObject perso2;
 
     public GameObject persoMenuRef;
+    public GameObject deathCanva;
 
     private void Start()
     {
@@ -63,11 +64,11 @@ public class playerController : MonoBehaviour
 
     void Update()
     {
-
+        
         if( persoMenuRef.GetComponent<BoutonsMenu>().persoA)
         {
-            perso1.SetActive(true);
-            perso2.SetActive(false);
+            perso2.SetActive(true);
+            perso1.SetActive(false);
         }
 
         else
@@ -75,6 +76,7 @@ public class playerController : MonoBehaviour
             perso1.SetActive(true);
             perso2.SetActive(false);
         }
+        
         //
         //Tant que le bouton gauche de la souris est enfonc�
         if (Input.GetMouseButton(0) && isDashing == false && flamingMode == false)
@@ -220,6 +222,7 @@ public class playerController : MonoBehaviour
         if (HP <= 0 && isDead == false)
         {
             Debug.Log("player is dead - GameOver");
+            deathCanva.SetActive(true);
             Invoke("reloadMenu", 2f);
             isDead = true;
         }

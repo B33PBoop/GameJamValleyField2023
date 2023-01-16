@@ -1,8 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.Rendering.FilterWindow;
-using static UnityEngine.GraphicsBuffer;
 using UnityEngine.UI;
 
 public class PlantsAI : MonoBehaviour
